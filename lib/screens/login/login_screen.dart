@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:widgetbook_demo/responsive.dart';
 
 import '../../components/background.dart';
 import 'components/login_form.dart';
 import 'components/login_screen_top_image.dart';
+
+@WidgetbookUseCase(name: 'LoginScreen', type: LoginScreen)
+MaterialApp loginScreen(BuildContext context) =>
+    MaterialApp(home: const LoginScreen());
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);

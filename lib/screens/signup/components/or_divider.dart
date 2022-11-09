@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:widgetbook_demo/constants.dart';
+
+@WidgetbookUseCase(name: 'OrDivider', type: OrDivider)
+OrDivider orDivider(BuildContext context) => const OrDivider();
 
 class OrDivider extends StatelessWidget {
   const OrDivider({Key? key}) : super(key: key);

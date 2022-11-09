@@ -1,4 +1,77 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart';
+import 'package:widgetbook_demo/constants.dart';
+import 'package:widgetbook_demo/responsive.dart';
+import 'package:widgetbook_demo/screens/login/components/login_form.dart';
+import 'package:widgetbook_demo/screens/login/components/login_screen_top_image.dart';
+import 'package:widgetbook_demo/screens/login/login_screen.dart';
+import 'package:widgetbook_demo/screens/signup/components/sign_up_top_image.dart';
+import 'package:widgetbook_demo/screens/signup/components/signup_form.dart';
+import 'package:widgetbook_demo/screens/signup/signup_screen.dart';
+
+@WidgetbookUseCase(name: 'LoginBackground', type: Background)
+MaterialApp loginBackground(BuildContext context) {
+  return MaterialApp(
+    home: Background(
+      child: SingleChildScrollView(
+        child: Responsive(
+          mobile: const MobileLoginScreen(),
+          desktop: Row(
+            children: [
+              const Expanded(
+                child: LoginScreenTopImage(),
+              ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    SizedBox(
+                      width: 450,
+                      child: LoginForm(),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+@WidgetbookUseCase(name: 'SignUpBackground', type: Background)
+MaterialApp signUpBackground(BuildContext context) {
+  return MaterialApp(
+    home: Background(
+      child: SingleChildScrollView(
+        child: Responsive(
+          mobile: const MobileSignupScreen(),
+          desktop: Row(
+            children: [
+              const Expanded(
+                child: SignUpScreenTopImage(),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    SizedBox(
+                      width: 450,
+                      child: SignUpForm(),
+                    ),
+                    SizedBox(height: defaultPadding / 2),
+                    // SocalSignUp()
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
 
 class Background extends StatelessWidget {
   final Widget child;

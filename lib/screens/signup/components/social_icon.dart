@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:widgetbook_demo/constants.dart';
+
+@WidgetbookUseCase(name: 'SocalIconFacebook', type: SocalIcon)
+SocalIcon socialIconFacebook(BuildContext context) => SocalIcon(
+      iconSrc: 'assets/icons/facebook.svg',
+      press: () {},
+    );
+
+@WidgetbookUseCase(name: 'SocalIconGoogle', type: SocalIcon)
+SocalIcon socialIconGoogle(BuildContext context) => SocalIcon(
+      iconSrc: 'assets/icons/google-plus.svg',
+      press: () {},
+    );
 
 class SocalIcon extends StatelessWidget {
   final String? iconSrc;
